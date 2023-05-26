@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Password generator app</title>
+  <link rel="stylesheet" href="./starter-code/css/nouislider.min.css">
+  <link rel="stylesheet" href="./starter-code/css/styles.css">
+  <link rel="stylesheet" href="./starter-code/css/tablet_desktop.css">
+</head>
+
+<body>
+  <main>
+    <label>Password Generator</label>
+
+    <div id="password-output-container">
+      <input type="text" value="" id="password" placeholder="P4$5W0rD!">
+      <div>
+        <span id="text-copied">Copied</span>
+        <button type="button" id="copy-btn">
+          <svg width="21" height="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.341 3.091 17.909.659A2.25 2.25 0 0 0 16.319 0H8.25A2.25 2.25 0 0 0 6 2.25V4.5H2.25A2.25 2.25 0 0 0 0 6.75v15A2.25 2.25 0 0 0 2.25 24h10.5A2.25 2.25 0 0 0 15 21.75V19.5h3.75A2.25 2.25 0 0 0 21 17.25V4.682a2.25 2.25 0 0 0-.659-1.591ZM12.469 21.75H2.53a.281.281 0 0 1-.281-.281V7.03a.281.281 0 0 1 .281-.281H6v10.5a2.25 2.25 0 0 0 2.25 2.25h4.5v1.969a.282.282 0 0 1-.281.281Zm6-4.5H8.53a.281.281 0 0 1-.281-.281V2.53a.281.281 0 0 1 .281-.281H13.5v4.125c0 .621.504 1.125 1.125 1.125h4.125v9.469a.282.282 0 0 1-.281.281Zm.281-12h-3v-3h.451c.075 0 .147.03.2.082L18.667 4.6a.283.283 0 0 1 .082.199v.451Z" fill="#A4FFAF" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="password-settings-container">
+
+      <div id="char-length-section">
+        <span>Character Length</span>
+        <span id="slider-value">10</span>
+      </div>
+
+      <div id="slider"></div>
+
+      <div id="checkboxes-section">
+        <label class="checkbox">
+          <input type="checkbox" value="uppercase">
+          <span class="checkmark"></span>
+          Include Uppercase Letters
+        </label>
+
+        <label class="checkbox">
+          <input type="checkbox" value="lowercase">
+          <span class="checkmark"></span>
+          Include Lowercase Letters
+        </label>
+
+        <label class="checkbox">
+          <input type="checkbox" value="numbers">
+          <span class="checkmark"></span>
+          Include Numbers
+        </label>
+
+        <label class="checkbox">
+          <input type="checkbox" value="symbols">
+          <span class="checkmark"></span>
+          Include Symbols
+        </label>
+      </div>
+
+      <div id="password-strength-section">
+        <span>Strength</span>
+        <div id="password-strength">
+          <span>Medium</span>
+          <div class="password-strength-bar">
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" id="generate-btn">Generate<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#24232C" d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z" />
+        </svg>
+      </button>
+
+    </div>
+
+  </main>
+
+  <script src="./starter-code/js/nouislider.min.js"></script>
+  <script src="./starter-code/js/wNumb.min.js"></script>
+  <script src="./starter-code/js/index.js"></script>
+</body>
+
+</html>

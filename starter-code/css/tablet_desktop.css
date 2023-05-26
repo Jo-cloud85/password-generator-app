@@ -1,0 +1,78 @@
+@media screen and (min-width: 600px) {
+    /* ----------------- Overall structure ----------------- */
+    body {
+        padding: 0;
+    }
+
+    main, 
+    #password-output-container,
+    #password-settings-container {
+        width: 540px;
+    }
+
+    main > label {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #password-output-container {
+        margin-bottom: 1.5rem;
+        padding: var(--r20) 2rem;
+    }
+
+    .checkbox {
+        margin-bottom: var(--r20);
+    }
+
+    #text-copied,
+    #char-length-section span:first-child,
+    .checkbox,
+    #password-strength-section span:first-child,
+    #generate-btn {
+        font-size: var(--r18);
+        line-height: 1.5rem;
+    }
+
+    #password-settings-container {
+        padding: 1.5rem 2rem;
+    }
+
+    #password,
+    #char-length-section span:last-child {
+        font-size: 2rem;
+        line-height: var(--r43);
+    }
+
+    #password-output-container > div {
+        gap: 1rem;
+    }
+
+    #char-length-section {
+        padding-bottom: var(--r26);
+    }
+
+    /* ----- Customized checkbox section -----*/
+    .checkmark {
+        margin-right: 1.5rem;
+    }
+    /* ------------------------------------- */ 
+
+    #password-strength-section {
+        padding: var(--r20) 2rem;
+    }
+
+    #password-strength span:first-child {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    #generate-btn { /*Hover effect in index.js*/
+        padding: var(--r20) 0;
+        margin-top: 2rem;
+    }
+
+    #generate-btn svg {
+        padding-left: 1.5rem;
+    }
+}

@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-family: 'JetBrains Mono', monospace;
+    --red: hsl(0, 91%, 63%);
+    --orange: hsl(13, 95%, 66%);
+    --yellow: hsl(42, 91%, 68%);
+    --neon-green: #a3ffae;
+    --almost-white: hsl(252, 11%, 91%);
+    --gray: hsl(251, 9%, 53%);
+    --dark-gray: hsl(248, 10%, 15%);
+    --very-dark-gray: hsl(248, 15%, 11%);
+}
+
+html {
+    --r43: calc((43 / var(--base) * 1rem));
+    --r28: calc((28 / var(--base) * 1rem));
+    --r26: calc((26 / var(--base) * 1rem));
+    --r21: calc((21 / var(--base) * 1rem));
+    --r20: calc((20 / var(--base) * 1rem));
+    --r18: calc((18 / var(--base) * 1rem));
+    --r15: calc((15 / var(--base) * 1rem));
+    --r14: calc((14 / var(--base) * 1rem));
+    --r12: calc((12 / var(--base) * 1rem));
+    --r10: calc((10 / var(--base) * 1rem));
+    --base: 16;
+}
+
+/* ----------------- Overall structure ----------------- */
+body, 
+main,
+#password-output-container,
+#password-settings-container,
+#password-strength-section {  
+    box-sizing: border-box;
+}
+
+body, 
+main {    
+    display: grid;
+    place-items: center;
+}
+
+body {
+    background-color: var(--very-dark-gray);
+    color: var(--almost-white);
+    height: 100vh;
+    padding: 4rem 1rem;
+}
+
+main, 
+#password-output-container,
+#password,
+#password-settings-container,
+#slider-bar,
+#generate-btn {
+    width: 100%;
+}
+
+main > label, 
+#password-output-container,
+.checkbox {
+    margin-bottom: 1rem;
+}
+
+main > label, 
+#text-copied,
+#char-length-section span:first-child,
+.checkbox,
+#password-strength-section span:first-child,
+#generate-btn {
+    font-size: 1rem;
+    line-height: var(--r21);
+}
+
+main > label {
+    color: gray;
+    text-align: center;
+}
+
+#password-output-container,
+#char-length-section,
+#password-strength-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#password-output-container,
+#password-settings-container {
+    background-color: var(--dark-gray);
+    padding: 1rem;
+}
+
+#password,
+#char-length-section span:last-child {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+#slider-bar,
+button { /*as it applies to both buttons*/
+    cursor: pointer;
+}
+
+#password-output-container > div {
+    display: flex;
+    align-items: center;
+    gap: var(--r14);
+}
+
+#text-copied,
+#char-length-section span:last-child {
+    color: var(--neon-green);
+}
+
+#password {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+#text-copied {
+    display: none;
+    text-transform: uppercase;
+}
+
+#copy-btn {
+    background-color: transparent;
+    border: none;
+}
+
+#char-length-section {
+    padding-bottom: var(--r20);
+}
+
+#slider {
+    /* padding: 0 var(--r14); */
+    height: 0.5rem;
+}
+
+/* -------- Customized noUiSlider --------*/
+.noUi-target {
+    background-color: var(--very-dark-gray);
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.noUi-connects {
+    border-radius: 0;
+}
+
+.noUi-connect {
+    background: var(--neon-green);
+}
+
+.noUi-horizontal .noUi-handle:before,
+.noUi-horizontal .noUi-handle:after {
+    display: none;
+}
+
+.noUi-horizontal .noUi-handle {
+    background: var(--almost-white);
+    border: 2px solid var(--almost-white);
+    border-radius: var(--r14);
+    box-shadow: none;
+    cursor: pointer;
+    height: var(--r28);
+    width: var(--r28);
+    right: -14px;
+    top: -10px;
+    transition: all 0.3s ease;
+}
+
+.noUi-horizontal .noUi-handle:is(:hover, :active) {
+    background: var(--very-dark-gray);
+    border: 2px solid var(--neon-green);
+}
+
+/* ----- Customized checkbox section -----*/
+#checkboxes-section {
+    padding: 2rem 0;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    color: var(--almost-white);
+    cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkmark {
+    background-position: center; /*Somehow if I put this under :checked just below, there is this jerky reaction when clicked*/
+    position: relative;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: var(--r20);
+    border: 2px solid var(--almost-white);
+    transition: all 0.3s;
+}
+
+.checkbox input[type="checkbox"]:checked ~ .checkmark {
+    background-image: url(../assets/images/icon-check.svg);
+    background-size: var(--r14);
+    background-repeat: no-repeat;
+    background-color: var(--neon-green);
+    border-color: var(--neon-green);
+}
+
+.checkbox:hover input[type="checkbox"] ~ .checkmark {
+    border-color: var(--neon-green);
+}
+/* ------------------------------------- */ 
+
+#password-strength-section {
+    background-color: var(--very-dark-gray);
+    filter: brightness(110%);
+    padding: var(--r14) 1rem;
+    text-transform: uppercase;
+}
+
+#password-strength-section > span{
+    color: gray;
+}
+
+#password-strength span:first-child {
+    font-size: var(--r18);
+    line-height: 1.5rem;
+}
+
+#password-strength {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.password-strength-bar {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.indicator {
+    border: 2px solid var(--almost-white);
+    height: var(--r28);
+    width: var(--r10);
+}
+
+.red {
+    background-color: var(--red);
+    border: 2px solid var(--red);
+}
+
+.orange {
+    background-color: var(--orange);
+    border: 2px solid var(--orange);
+}
+
+.yellow {
+    background-color: var(--yellow);
+    border: 2px solid var(--yellow);
+}
+
+.green {
+    background-color: var(--neon-green);
+    border: 2px solid var(--neon-green);
+}
+
+.na {
+    border: 2px solid var(--red);
+    box-shadow: 0 0 10px var(--red);
+}
+
+#generate-btn { /*Hover effect in index.js*/
+    background-color: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    padding: var(--r18) 0;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+#generate-btn svg {
+    padding-left: 1rem;
+}
